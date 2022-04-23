@@ -1,0 +1,44 @@
+const searchField = document.getElementById('searchField');
+const other = document.getElementById('other');
+const searchButton = document.getElementById('searchButton');
+
+const apiBaseRoute = 'https://pokeapi.co/api/v2'
+const fetchArgs ={
+	method: 'GET', // Can be POST, GET, PUT, DELETE, etc.
+	mode: 'cors',
+}
+
+// you just define it by function, it gets moved up to the top of the file
+// Whereas making it assigned to a variable, it stays in the order
+const searchHandler = (ev) => {
+	console.log(ev.target.value);
+}
+
+searchField.addEventListener('keyup', searchHandler);
+other.addEventListener('keyup', searchHandler);
+
+searchButton.addEventListener('click', function()
+{
+	// Search the pokeman api for the value in the searchField, Only in the browser
+  // basic very of a promise, chain .then commands together
+  fetch(`${apiBaseRoute}/pokemon/${searchField.value}`, fetchArgs)
+  	// Waiting for a response from the fetch command
+    // Parses the response data into a usable JSON file format
+  	.then((response) => response.json())
+    .then(function(data) {
+    	// Data that we can use in JSON format
+    	console.log('data: ', data);
+      
+      // will always return a node list since there can be more than one element with the same class
+      const result = document.getElementByClassName('resultSection')[0];
+      result.textContent = data.name;
+    })
+    .catch((error) => {
+    	console.log('fetch error: ', error);
+    });
+    
+    
+    // Anything below the fetch, not in the then statments will run automatically separate
+    // from the fetch. In this the console log executes before the fetch.
+    console.log("Logged Response");
+});

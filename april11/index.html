@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>News Reader</title>
+    <script src="js/base.js"></script>
+
+    <style>
+      #apiKeyModal {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="apiKeyModal">
+      <input id="key" name="key"/>
+      <button id="saveKey">Submit</button>
+    </div>
+    <div id="newstuff">
+      
+    </div>
+
+
+    <script>
+      loadScript('js/test.js');
+      loadScript('js/apiKey.js')
+      .then(() => {
+        const button = document.getElementById('saveKey');
+        button.addEventListener('click', (ev) => {
+          const keyElement = document.getElementById('key');
+          const key = keyElement.value;
+          // Check to make 
+          storeKey(key);
+        })
+
+        const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey={window.localStorage.getItem('apiKey')}`;
+        loadScript('js/newsdata.js')
+        .then() => {
+          //newsdata
+          const sources = new Set();
+          newsdata.articles.foreach((article) => {
+            sources.add(article.source.name);
+          });
+          console.log(sources);
+          const parent = document.getElementById
+          const select = document.createElement('select');
+          Array.from(sources).forEach((sources) => {
+            const option = document.createElement('option');
+            option.value = source;
+            option.textContent = source;
+            select.appendChild(option);
+          });
+          select.addEventListener('change', function() {
+            console.log('do not do this');
+          });
+          parent.appendChild(select);
+        };
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Game</title>
+    <script src="js/site.js" defer></script>
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+    <header>
+        <h1>Trivial Trivia Game</h1>
+        <br>
+    </header>
+    <section>
+        <div id="replaySec" class="qSection endScreen">
+            <h2 class="GO">Game Over</h2>
+            <h5 id="endScore" class="GO">Score: </h5>
+            <div id="replayBtn" class="choiceBtn rBtn">
+                Start Over
+            </div>
+        </div>
+        <div id="questionSection" class="qSection">
+            <div>
+               <span id="scoreTxt">Score: 0</span>
+               <span id="numbQ">Question Number: 1</span>
+            </div>
+            <span id="questionState" class="qState"></span>
+            <div id="trueBtn" class="choiceBtn trueB">
+                True
+            </div>
+            <div id="falseBtn" class="choiceBtn falseB">
+                False
+            </div>
+        </div>
+        <p id='correctAnswer'></p>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+</html>
