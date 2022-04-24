@@ -19,7 +19,7 @@ app.get('/orders', (req, res, next) => {
     res.end(template());
 });
 
-app.get('/features', (req, res, next) => {
+app.get('/products', (req, res, next) => {
     const template = pug.compileFile('templates/features.pug');
     res.end(template());
 });

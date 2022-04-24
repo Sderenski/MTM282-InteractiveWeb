@@ -4,13 +4,14 @@ html
         link(rel="stylesheet", href="../style/css/site.css")
     body 
         section 
-            nav 
-                ul 
-                    a(href="/") Home 
-                ul 
-                    a(href="/orders") Order Form 
-                ul
-                    a(href="/features") Features
+            input(class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon")
+            label(for="menu-icon")
+            nav(class="nav")
+                ul(class="pt-5")
+                    li 
+                        a(href="/") Home
+                    li 
+                        a(href="/products") Products   
         section 
             block content
 
