@@ -1,0 +1,17 @@
+{
+    "races":[
+        "Dragon",
+        "Druid",
+        "Elf"
+    ],
+    "classes": [
+        "Rogue",
+        "Ranger",
+        "Bard"
+    ],
+    "aligments": [
+        "Good",
+        "Neutral",
+        "Evil"
+    ]
+}
