@@ -1,6 +1,7 @@
 extends layout.pug 
         
 block content 
+    script(src="../style/js/product.js") 
     h1 Product Page
     //- ? Maybe build an api to fill this for use through JSON
     section(class="pro")
@@ -8,12 +9,10 @@ block content
             //- Pass the variables here to loop through in the templating engine
             //- Not through the JS on Client or Server side
             each val in products
-                div(class="product-card")
+                div(class="product-card" onclick=`cartPage(${val.id})`)
                     div(class="product-image")
                         img(src=val.image)
                     div(class="product-info")
                         h5 #{val.title}
-                        h6 #{val.price}
-    
-    script(src="../style/js/product.js") 
+                        h6 $#{val.price}
         

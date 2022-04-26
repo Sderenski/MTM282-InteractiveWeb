@@ -290,7 +290,7 @@ h1{
 
 /* Product Section */
 .pro {
-
+  margin: 0 auto;
   width: fit-content;
   height: fit-content;
   background-color: white;
@@ -326,6 +326,57 @@ h1{
 .product-info {
     margin-top: auto;
     text-align: center;
+}
+
+.singlePro{
+  text-align: center;
+  padding: 5px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.singlePro h3{
+  padding: 5px;
+}
+
+.product-image2{
+  height: fit-content;
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
+}
+.product-image2 img{
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.product-info2{
+  display: inline-block;
+}
+
+.product-info2 span{
+  text-align: center;
+  display: inline-block;
+  width: 100px !important;
+}
+
+.product-info2 span input{
+  max-width: 75px;
+}
+
+.add{
+  margin: 5px auto;
+  padding: 5px;
+  border: #1f2029 1px solid;
+  border-radius: 5px;
+  max-width: 100px;
+}
+
+.add:hover{
+  background-color: #353746;
+  color: whitesmoke;
+  cursor: pointer;
+  box-shadow: 2px 2px 3px 1px rgba(0,0,0,.1);
 }
 
 h5{

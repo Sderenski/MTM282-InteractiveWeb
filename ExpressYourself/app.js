@@ -32,15 +32,20 @@ app.get('/products', (req, res, next) => {
     });
 });
 
-app.get('/product/{id}', (req, res, next) => {
+// Order Cart Items
+app.get('/product/:id?', (req, res, next) => {
     // Call API and fetch product data
     // Load the product template
-    const template = pug.compileFile('templates/features.pug');
-    res.end(template());
-});
+    const products = JSON.parse(fs.readFileSync('products.json', {
+        encoding: 'utf8',
+    }));
 
-// /Products/{ProductID}
-// /AddToCart/{ProductID}/{Quantity}
+    //console.log(JSON.stringify(products[req.params.id]));
+
+    res.render('cartOrder', {
+        product: products[req.params.id - 1],
+    });
+});
 
 
 // Have it grab what a user picks and add it to a json file through fs

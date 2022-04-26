@@ -1,0 +1,20 @@
+extends layout.pug
+block styles
+    link(rel="stylesheet", href="../style/css/orders.css")
+
+block content
+    h1 Product Details 
+    section(class="pro")
+        section(id="proSection" class="singlePro")
+            h3 #{product.title}
+            div(class="product-image2")
+                img(src=product.image)
+            //-  Pass back a qanutity back to the back end through url
+            div(class="product-info2")
+                span
+                    h5 $#{product.price}
+                span
+                    label(for="quantity") Quantity
+                    input(type="number" id="quantity" name='quantity')
+            div(class="add") Add To Cart
+
