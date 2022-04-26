@@ -1,24 +1,24 @@
+
+h3{
+  color: black;
+}
+
 .row {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
+  display: inline-flexbox !important;
   flex-wrap: wrap;
   margin: 0 -16px;
 }
 
 .col-25 {
-  -ms-flex: 25%; /* IE10 */
-  flex: 25%;
+  flex: 1 25%;
 }
 
 .col-50 {
-  -ms-flex: 50%; /* IE10 */
-  flex: 50%;
+  flex: 1 50%;
 }
 
 .col-75 {
-  -ms-flex: 75%; /* IE10 */
-  flex: 75%;
+  flex: 1 25%;
 }
 
 .col-25,
