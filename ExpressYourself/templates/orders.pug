@@ -1,16 +1,35 @@
 extends layout.pug 
 
+block styles
+    link(rel="stylesheet", href="../style/css/orders.css")
+
+
 block content 
     h1 Orders Page
-    div
-        form(id="orderForm")
-            label(for='name') Full Name 
-            input(name='name' id='name')
-            input(name='street' id='street')
-            input(name='city' id='city')
-            input(name='state' id='state')
-            select(name='country' id='country')
-    
+    div(class="row")
+        div(class="col-75")
+            div(class="container")
+                form
+                    div(class="row")
+                        div(class="col-50")
+                            h3 Billing Address
+                            label(for="fname"): i(class="fa fa-user") Full Name  
+                            input(type="text" id="fname" name="firstname" placeholder="John M. Doe")
+                            label(for="email"): i(class="fa fa-envelope") Email
+                            input(type="text" id="email" name="email" placeholder="john@email.com")
+                            label(for="adr"): i(class="fa fa-addres-card-o") Address 
+                            input(type="text" id="adr" name="address" placeholder="542 W. 15th Street") 
+                            label(for="city"): i(class="fa fa-institution") City
+                            input(type="text" id="city" name="city" placeholder="New York")
+                            div(class="row")
+                                div(class="col-50")
+                                    label(for="state") State
+                                    input(type="text" id="state" name="state" placeholder="NY")
+                                div(class="col-50")
+                                    label(for="zip") Zip
+                                    input(type="text" id="zip" name="zip" placeholder="10001")
+
+                                  
 
 
 

@@ -25,6 +25,10 @@ app.get('/products', (req, res, next) => {
 });
 
 
+// Have it grab what a user picks and add it to a json file through fs
+// Then import it into orders
+
+
 app.listen(port, (err) => {
     if(err) throw err;
     console.log(`App listening on port ${port}...`)});

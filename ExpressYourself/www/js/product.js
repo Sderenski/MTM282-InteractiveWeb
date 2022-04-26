@@ -1,4 +1,5 @@
 const proSection = document.getElementById("proSection");
+let data = {};
 
 function loadProducts() {
     const fetchOptions = {
@@ -9,12 +10,13 @@ function loadProducts() {
     }
     fetch('https://fakestoreapi.com/products', fetchOptions)
     .then(res => res.json())
-    .then(data => {
+    .then(dataTemp => {
+        data = dataTemp;
         console.log(data);
         for(var i = 0; i < Object.keys(data).length; i++){
             proSection.innerHTML +=`
             <div class="product-card">
-                <div class="product-image">
+                <div id="proCard${i}" class="product-image">
                     <img src="${data[i]['image']}"/>
                 </div>
                 <div class="product-info">
@@ -29,4 +31,16 @@ function loadProducts() {
 };
 
 loadProducts();
+
+
+// Product Card Buttons 
+const proBtn0 = document.getElementById('proCard0');
+
+// Ask a lot of questions......
+proBtn0.addEventListener("click", () => {
+
+});
+
+// Have it grab what a user picks and add it to a json file through fs
+// Then import it into orders
 
