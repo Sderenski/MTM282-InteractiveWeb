@@ -350,6 +350,13 @@ h1{
     max-height: 400px;
 }
 
+.description {
+  padding: 0 10px;
+  max-width: 400px;
+  font-weight: 300;
+  font-size: 15px;
+}
+
 .product-info2{
   display: inline-block;
 }

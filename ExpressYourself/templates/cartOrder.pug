@@ -1,7 +1,7 @@
 extends layout.pug
 block styles
     link(rel="stylesheet", href="../style/css/orders.css")
-
+    
 block content
     h1 Product Details 
     section(class="pro")
@@ -11,10 +11,14 @@ block content
                 img(src=product.image)
             //-  Pass back a qanutity back to the back end through url
             div(class="product-info2")
+                div(class="description")
+                    p #{product.description}
+                    i Rating: #{product.rating.rate} / 5
                 span
                     h5 $#{product.price}
                 span
                     label(for="quantity") Quantity
-                    input(type="number" id="quantity" name='quantity')
-            div(class="add") Add To Cart
+                    input(type="number" id="quantity" name='quantity' value=0)
+            div(class="add" onclick=`onSubmit(${product.id})`) Add To Cart
+    script(src="../style/js/orderCart.js") 
 

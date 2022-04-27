@@ -5,8 +5,8 @@ block styles
 
 block content 
     h1 Orders Page
-    div(class="row")
-        div(class="col-75")
+    div(class="col-75")
+        div(class="row")
             div(class="container")
                 form
                     div(class="row")
@@ -22,20 +22,27 @@ block content
                             input(type="text" id="adr" name="address" placeholder="542 W. 15th Street") 
                             label(for="city"): i(class="fa fa-institution") City
                             input(type="text" id="city" name="city" placeholder="New York")
-                            div(class="row")
+                            div(class="row1")
                                 div(class="col-50")
                                     label(for="state") State
                                     input(type="text" id="state" name="state" placeholder="NY")
                                 div(class="col-50")
                                     label(for="zip") Zip
                                     input(type="text" id="zip" name="zip" placeholder="10001")
-                    label Shipping address same as billing
-                    input(type="checkbox" checked="checked" name="sameadr")
-                    input(type="submit" value="Continue to checkout" class="btn")
-        div(class="col-25")
-            div(class="container")
-                h4 Cart
-                    span(class="price" style="color:black"): i(class="fa fa-shopping-cart"): b 4
+                    div(class="submitForm" onclick=`onSubmit()`)
+                        input(id="btn" type="submit" value="Continue to checkout" class="btn")
+            div(class="col-25")
+                div(class="container2")    
+                    h4 Cart
+                         span(class="price" style="color:black"): i(class="fa fa-shopping-cart"): b #{numProducts}
+                    each product in products
+                        p: a(href="#") #{product.title}
+                            span(class="price") $#{product.price}
+                    hr
+                    p Total
+                        span(class="price" style="color:black"): b $#{totalPrice} 
+                    
+        
                                                   
 
 

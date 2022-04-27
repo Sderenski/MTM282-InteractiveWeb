@@ -1,37 +1,47 @@
 
-h3{
+h3, h4{
   color: black;
 }
 
 .row {
-  display: inline-flexbox !important;
+  display: flex;
   flex-wrap: wrap;
-  margin: 0 -16px;
+  margin: 0 16px;
+}
+.row1 {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 1px;
 }
 
 .col-25 {
-  flex: 1 25%;
+  padding: 2%;
+  flex: 1 9%;
 }
-
-.col-50 {
-  flex: 1 50%;
-}
-
 .col-75 {
-  flex: 1 25%;
-}
-
-.col-25,
-.col-50,
-.col-75 {
-  padding: 0 16px;
+  padding: 2%;
+  flex: 1 90%;
 }
 
 .container {
   background-color: #f2f2f2;
+  margin-left: 15%;
   padding: 5px 20px 15px 20px;
   border: 1px solid lightgrey;
   border-radius: 3px;
+  width: 50%;
+}
+.container2 {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  width: 60%;
+}
+
+form{
+  width: fit-content;
+  margin: 0 auto;
 }
 
 input[type=text] {
@@ -57,9 +67,9 @@ label {
   background-color: #04AA6D;
   color: white;
   padding: 12px;
-  margin: 10px 0;
+  margin: 10px 22%;
   border: none;
-  width: 100%;
+  width: fit-content;
   border-radius: 3px;
   cursor: pointer;
   font-size: 17px;
@@ -72,16 +82,6 @@ label {
 span.price {
   float: right;
   color: grey;
-}
-
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
-@media (max-width: 800px) {
-  .row {
-    flex-direction: column-reverse;
-  }
-  .col-25 {
-    margin-bottom: 20px;
-  }
 }
 
 label{
