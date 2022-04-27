@@ -70,6 +70,7 @@ app.get('/product/:id?/:quantity?', (req, res, next) => {
         encoding: 'utf8',
     }));
 
+    // This still isn't working right.....
     let product = products[req.params.id - 1];
     if(req.params.quantity > 0){
         product.quantity = parseInt(req.params.quantity);
