@@ -1,10 +1,12 @@
 const express = require('express');
 const pug = require('pug');
 const fs = require('fs');
-const { isBuffer } = require('util');
 
-const port = 3000;
+const port = 3001;
 const app = express();
+const products = JSON.parse(fs.readFileSync('products.json', {
+    encoding: 'utf8',
+}));
 
 app.set('views', './templates');
 app.set('view engine', 'pug');
@@ -14,10 +16,12 @@ app.use('/style', express.static('www'));
 
 // Setting up Web Page routes
 app.get('/', (req, res, next) => {
+
     res.render('title');
 });
 
 app.get('/orders', (req, res, next) => {
+
     const cart = JSON.parse(fs.readFileSync('cart.json', {
         encoding: 'utf8',
     }));
@@ -37,10 +41,6 @@ app.get('/products', (req, res, next) => {
     // Call the API from the back end
     // Get the products
     // Pass them to the features template
-    const products = JSON.parse(fs.readFileSync('products.json', {
-        encoding: 'utf8',
-    }));
-
     //console.log(JSON.stringify(products));
 
     res.render('features', {
@@ -50,14 +50,6 @@ app.get('/products', (req, res, next) => {
 
 // Order Cart Items
 app.get('/product/:id?', (req, res, next) => {
-    // Call API and fetch product data
-    // Load the product template
-    const products = JSON.parse(fs.readFileSync('products.json', {
-        encoding: 'utf8',
-    }));
-
-    //console.log(JSON.stringify(products[req.params.id-1]));
-
 
     res.render('cartOrder', {
         product: products[req.params.id - 1],
@@ -66,26 +58,23 @@ app.get('/product/:id?', (req, res, next) => {
 
 // Writing the cart to json file, or appending it
 app.get('/product/:id?/:quantity?', (req, res, next) => {
-    const products = JSON.parse(fs.readFileSync('products.json', {
-        encoding: 'utf8',
-    }));
 
     // This still isn't working right.....
     let product = products[req.params.id - 1];
     if(req.params.quantity > 0){
+        appendList = [];
         product.quantity = parseInt(req.params.quantity);
         if(fs.existsSync('cart.json')){
-            var appendList = [];
             const cart = JSON.parse(fs.readFileSync('cart.json', {
                 encoding: 'utf8',
             }));
-            appendList.push(cart);
-            appendList.push(product);
-            fs.writeFile('cart.json', JSON.stringify(appendList), (err) => {
+            cart.push(product);
+            fs.writeFile('cart.json', JSON.stringify(cart), (err) => {
                 if(err) throw err;
             });
         } else{
-            fs.writeFile('cart.json', JSON.stringify(product), (err) => {
+            appendList.push(product);
+            fs.writeFile('cart.json', JSON.stringify(appendList), (err) => {
                 if(err) throw err;
             });
         }
