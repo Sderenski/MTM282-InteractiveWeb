@@ -1,6 +1,18 @@
 extends layout.pug 
 
-block content 
-    h1 Title Page
+block styles
+    link(rel="stylesheet", href="../style/css/title.css")
 
+block content 
     section
+        div(class="c-heroImageGrid")
+            div(class="container")
+                div(class="column")
+                div(class="column")
+                    div(class="row")
+                    div(class="row")
+                        div
+                            div(class="text")
+                                h6(class="titleW") Home Page 
+                        div
+                    div(class="row")

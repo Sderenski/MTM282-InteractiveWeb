@@ -309,6 +309,12 @@ h1{
     flex: 1 12%;
     border: #ececee 1px solid;
     border-radius: 6px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.product-grow:hover{
+  transform: scale(1.1);
 }
 
 .product-image{
@@ -373,10 +379,12 @@ h1{
 
 .add{
   margin: 5px auto;
+  font-weight: 600;
   padding: 5px;
   border: #1f2029 1px solid;
   border-radius: 5px;
   max-width: 100px;
+  transition: all .2s ease-in-out;
 }
 
 .add:hover{
@@ -384,6 +392,7 @@ h1{
   color: whitesmoke;
   cursor: pointer;
   box-shadow: 2px 2px 3px 1px rgba(0,0,0,.1);
+  transform: scale(1.1);
 }
 
 h5{

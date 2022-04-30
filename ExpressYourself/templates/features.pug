@@ -10,9 +10,10 @@ block content
             //- Not through the JS on Client or Server side
             each val in products
                 div(class="product-card" onclick=`cartPage(${val.id})`)
-                    div(class="product-image")
-                        img(src=val.image)
-                    div(class="product-info")
-                        h5 #{val.title}
-                        h6 $#{val.price}
+                    div(class="Product-grow")
+                        div(class="product-image")
+                            img(src=val.image)
+                        div(class="product-info")
+                            h5 #{val.title}
+                            h6 $#{val.price}
         

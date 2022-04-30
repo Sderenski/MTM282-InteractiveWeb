@@ -29,7 +29,7 @@ block content
                                 div(class="col-50")
                                     label(for="zip") Zip
                                     input(type="text" id="zip" name="zip" placeholder="10001")
-                    div(class="submitForm" onclick=`onSubmit()`)
+                    div(class="submitForm")
                         input(id="btn" type="submit" value="Continue to checkout" class="btn")
             div(class="col-25")
                 div(class="container2")    
@@ -37,9 +37,9 @@ block content
                          span(class="price" style="color:black"): i(class="fa fa-shopping-cart"): b #{numProducts}
                     each product in products
                         p: a(href="#") #{product.title}
-                            span(class="price") $#{product.price}
+                            span(class="price") $#{product.price} (x#{product.quantity})
                     hr
-                    p Total
+                    p(style="color: black") Total
                         span(class="price" style="color:black"): b $#{totalPrice} 
                     
         

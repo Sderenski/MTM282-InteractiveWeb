@@ -10,12 +10,9 @@ html
             label(for="menu-icon")
             nav(class="nav")
                 ul(class="pt-5")
-                    li 
-                        a(href="/") Home
-                    li 
-                        a(href="/products") Products
-                    li 
-                        a(href="/orders") Orders 
+                    for item in navList
+                        li
+                            a(href=item.route) #{item.title}
         section(class="contentSec") 
             block content
 

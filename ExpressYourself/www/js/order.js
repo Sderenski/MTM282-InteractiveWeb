@@ -8,24 +8,29 @@ const zipInput = document.getElementById('zip');
 
 const btn = document.getElementById('btn');
 
-function onSubmit(){
-    console.log(`It worked`)
+btn.onclick = (ev) => {
+    ev.preventDefault();
+    const fetchOptions ={
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            name: nameInput.value,
+            phone: phoneInput.value,
+            email: emailInput.value,
+            adr: adrInput.value,
+            city: cityInput.value,
+            state: stateInput.value,
+            zip: zipInput.value,
+        }),
+    }
+    fetch('http://localhost:3001/orders', fetchOptions)
+    .then((response) => response.json())
+    .then((res) => {
+        window.location.href = '/';
+    })
+    .catch((err) => {
+        console.log('err: ', err);
+    });
 }
-
-// btn.onclick = (ev) => {
-//     ev.preventDefault();
-//     const fetchOptions = {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//             nameValue: nameInput.value,
-//         }),
-//     }
-//     fetch('http://localhost:3000/form', fetchOptions)
-//     .then((response) => response.json())
-//     .catch((err) => {
-//         console.log('err: ', err);
-//     });
-//}

@@ -4,36 +4,39 @@ const fs = require('fs');
 
 const port = 3001;
 const app = express();
+
+let filePath = "./menuB.json";
 const products = JSON.parse(fs.readFileSync('products.json', {
     encoding: 'utf8',
 }));
 
+// Functions
+function cartExists() {
+    if(fs.existsSync('cart.json')) return true;
+    else return false;
+}
+
+// * View Engine
+
 app.set('views', './templates');
 app.set('view engine', 'pug');
 
-// App using middleware
+
+// * App using middleware
+
 app.use('/style', express.static('www'));
 
-// Setting up Web Page routes
+
+// * Setting up Web Page routes
+
+
 app.get('/', (req, res, next) => {
-
-    res.render('title');
-});
-
-app.get('/orders', (req, res, next) => {
-
-    const cart = JSON.parse(fs.readFileSync('cart.json', {
+    
+    const menu = JSON.parse(fs.readFileSync(filePath, {
         encoding: 'utf8',
     }));
-    var total = 0;
-    cart.forEach(element => {
-        total += element["price"] * element["quantity"];
-        });
-
-    res.render('orders', {
-        numProducts: cart.length,
-        products: cart,
-        totalPrice: total,
+    res.render('title', {
+        navList: menu,    
     });
 });
 
@@ -42,16 +45,24 @@ app.get('/products', (req, res, next) => {
     // Get the products
     // Pass them to the features template
     //console.log(JSON.stringify(products));
+    const menu = JSON.parse(fs.readFileSync(filePath, {
+        encoding: 'utf8',
+    }));
 
     res.render('features', {
+        navList: menu,
         products: products,
     });
 });
 
 // Order Cart Items
 app.get('/product/:id?', (req, res, next) => {
+    const menu = JSON.parse(fs.readFileSync(filePath, {
+        encoding: 'utf8',
+    }));
 
     res.render('cartOrder', {
+        navList: menu,
         product: products[req.params.id - 1],
     });
 });
@@ -64,7 +75,7 @@ app.get('/product/:id?/:quantity?', (req, res, next) => {
     if(req.params.quantity > 0){
         appendList = [];
         product.quantity = parseInt(req.params.quantity);
-        if(fs.existsSync('cart.json')){
+        if(cartExists()){
             const cart = JSON.parse(fs.readFileSync('cart.json', {
                 encoding: 'utf8',
             }));
@@ -79,10 +90,72 @@ app.get('/product/:id?/:quantity?', (req, res, next) => {
             });
         }
     }
-    console.log(product);
+    filePath = './menuO.json';
 
     res.redirect('/products');
 })
+
+// Route for the order page
+app.get('/orders', (req, res, next) => {
+
+    const menu = JSON.parse(fs.readFileSync(filePath, {
+        encoding: 'utf8',
+    }));
+
+    const cart = JSON.parse(fs.readFileSync('cart.json', {
+        encoding: 'utf8',
+    }));
+    var total = 0;
+    cart.forEach(element => {
+        total += element["price"] * element["quantity"];
+        });
+    
+    res.render('orders', {
+        navList: menu,
+        numProducts: cart.length,
+        products: cart,
+        totalPrice: total,
+    });
+});
+
+// Grab the order form information....
+app.post('/orders', express.json(), (req, res, next) => {
+
+    const cart = JSON.parse(fs.readFileSync('cart.json', {
+        encoding: 'utf8',
+    }));
+    var total = 0;
+    cart.forEach(element => {
+        total += element["price"] * element["quantity"];
+        });
+    let orders = cart;
+    orders.unshift(req.body);
+    appendList = [];
+    if(fs.existsSync('orders.json')){
+        const orderList = JSON.parse(fs.readFileSync('orders.json', {
+            encoding: 'utf8',
+        }));
+        orderList.push(orders);
+        fs.writeFile('orders.json', JSON.stringify(orderList), (err) => {
+            if(err) throw err;
+        });
+        fs.unlink('cart.json', (err) => {
+            if(err) throw err;
+        });
+    } else{
+        appendList.push(orders);
+        fs.writeFile('orders.json', JSON.stringify(appendList), (err) => {
+            if(err) throw err;
+        });
+        fs.unlink('cart.json', (err) => {
+            if(err) throw err;
+        });
+    }
+
+    filePath = "./menuB.json";
+
+    res.json({value: "ok"});
+});
 
 // Have it grab what a user picks and add it to a json file through fs
 // Then import it into orders
