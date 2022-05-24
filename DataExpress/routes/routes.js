@@ -13,5 +13,9 @@ router.get('/music', (req, res, next) => {
     res.render('musicAPI')
 });
 
+router.get('/musicAdd', (req, res, next) => {
+    res.render('form')
+})
+
 
 module.exports = router;

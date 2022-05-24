@@ -11,7 +11,7 @@
 .fetchText {
     text-align: center;
     border-bottom: 2px maroon solid;
-    width: 160px;
+    width: 200px;
 }
 
 
@@ -37,4 +37,20 @@
 
 .button-item {
     padding-left: 100px;
+}
+
+.gradient-custom {
+    background: linear-gradient(to bottom right, maroon, rgba(254, 225, 64, 1))
+}
+
+.nav-custom {
+
+}
+
+.nav-link:hover {
+    color: maroon !important;
+}
+
+.active {
+    border-bottom: maroon solid 2px !important;
 }

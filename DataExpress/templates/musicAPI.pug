@@ -16,9 +16,9 @@ block content
         div.col-lg-6.mx-auto
             p.lead.mb-4 Example Text to fill in
             .d-grid.gap-2.d-sm-flex.justify-content-sm-center 
-                button(type="button" class="btn btn-outline-secondary buttonCommand btn-lg px-4 gap-3") Add
-                button(type="button" class="btn btn-outline-secondary buttonCommand btn-lg px-4") Delete
-                button(type="button" class="btn btn-outline-secondary buttonCommand btn-lg px-4") Fetch 
+                button(id='add' type="button" class="btn btn-outline-secondary buttonCommand btn-lg px-4 gap-3") Add
+                button(id='delete' type="button" class="btn btn-outline-secondary buttonCommand btn-lg px-4") Delete
+                button(id='fetch' type="button" class="btn btn-outline-secondary buttonCommand btn-lg px-4") Fetch 
     div.b-example-divider
     h2.display-6.fetchHeader
         p.fetchText Fetch List
@@ -36,3 +36,5 @@ block content
             div.title-song tension | gianni & kyle
             div.button-item 
                 button(type="button" class="btn btn-outline-secondary buttonCommand btn-lg") View
+
+    script(src="./public/js/music.front.js") 

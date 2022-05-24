@@ -1,7 +1,15 @@
 extends layout.pug 
 
+block navbar
+    li.nav-item
+        a.nav-link(href='/') Home
+    li.nav-item
+        a.nav-link(href='/music') Music
+    li.nav-item
+        a.nav-link(href='/books') Pricing
+
 block content
-    .mask.d-flex.align-items-center.h-100 
+    .mask.d-flex.align-items-center.h-100.gradient-custom
         div.container
             div.row-justify-content-center 
                 div.col-12.col-lg-9.col-xl-7
@@ -14,9 +22,26 @@ block content
                                     div.col-md-6.mb-4
                                         div.form-outline
                                             input(type="text" id='title' class="form-control")
-                                            label(class="form-label" for="title") Song Title
+                                            label(class="form-label" for="title") Song Title 
                                     div.col-md-6.mb-4
                                         div.form-outline
                                             input(type="text" id='artist' class="form-control")
-                                            label(class="form-label" for="title") Artist
+                                            label(class="form-label" for="artist") Artist
+                                div.row
+                                    div.col-md-6.mb-4
+                                        div.form-outline
+                                            input(type="text" id='album' class="form-control")
+                                            label(class="form-label" for="album") Album
+                                    div.col-md-6.mb-4
+                                        div.form-outline
+                                            input(type="text" id='year' class="form-control")
+                                            label(class="form-label" for="year") Year Released
+                                div.row
+                                    div.col-12
+                                        div.form-outline
+                                            input(type="text" id='genre' class="form-control")
+                                            label(class="form-label" for="genre") Genres 
+                                        div.mt-4
+                                            input(class="btn btn-warning btn-lg" type="submit" value="Submit")
+                                    
                                     
