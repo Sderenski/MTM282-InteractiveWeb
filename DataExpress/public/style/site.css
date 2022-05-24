@@ -1,0 +1,40 @@
+.buttonCommand:hover {
+    background-color: maroon;
+    box-shadow: 2px 2px 3px 1px rgba(0,0,0,.1);
+}
+
+.fetchHeader {
+    padding: 5px 5px 5px 10px;
+    width: 200px;
+}
+
+.fetchText {
+    text-align: center;
+    border-bottom: 2px maroon solid;
+    width: 160px;
+}
+
+
+.fetch-container {
+    padding: 0 10px 10px 10px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.fetch-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border: 1px gray solid;
+    border-radius: 8px;
+    box-shadow: 2px 2px 3px 1px rgba(0,0,0,.1);
+}
+
+.title-song {
+    padding: 10px;
+}
+
+.button-item {
+    padding-left: 100px;
+}

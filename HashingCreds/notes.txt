@@ -1,0 +1,13 @@
+Some common password hashing utilities:
+
+Bcrypt
+https://www.npmjs.com/package/bcrypt
+
+Argon2
+https://www.npmjs.com/package/argon2
+
+A library for creating JSON Web Tokens
+https://www.npmjs.com/package/jsonwebtoken
+
+What if I need to generate key files?
+https://www.scottbrady91.com/openssl/creating-rsa-keys-using-opensslLinks

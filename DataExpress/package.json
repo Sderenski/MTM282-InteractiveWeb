@@ -1,7 +1,7 @@
 {
   "name": "dataexpress",
   "version": "1.0.0",
-  "description": "Final Project for Interactive",
+  "description": "Final Project for Interactive Web Dev, Trying to make a full scale website for practice",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

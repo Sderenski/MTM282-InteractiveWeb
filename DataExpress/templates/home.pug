@@ -1,7 +1,12 @@
 extends layout.pug
 
-//- block navLinks
-//-     a(class="nav-link active" aria-current="page" href="/") Home
-//-     a(class="nav-link" href="#") BookAPI
-//-     a(class="nav-link" href="#") MusicAPI
+block navbar
+    li.nav-item
+        a.nav-link.active(aria-current='page' href='/') Home
+    li.nav-item
+        a.nav-link(href='/music') Music
+    li.nav-item
+        a.nav-link(href='/books') Books
+    li.nav-item
+        a.nav-link.disabled Disabled
 

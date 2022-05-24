@@ -27,6 +27,7 @@ app.use('/', routerFactory(Music));
 // Template routes for the pages
 app.use('/', pageRouter);
 
+app.use('/public', express.static('public'))
 
 app.listen(PORT, (err) => {
     if(err) throw err;

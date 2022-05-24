@@ -1,1 +1,38 @@
 extends layout.pug
+
+block navbar
+    li.nav-item
+        a.nav-link(href='/') Home
+    li.nav-item
+        a.nav-link.active(href='/music') Music
+    li.nav-item
+        a.nav-link(href='/books') Pricing
+    li.nav-item
+        a.nav-link.disabled Disabled
+
+block content
+    div.px-4.py-5.my-5.text-center
+        h1.display-5.fw.bold Centered Hero
+        div.col-lg-6.mx-auto
+            p.lead.mb-4 Example Text to fill in
+            .d-grid.gap-2.d-sm-flex.justify-content-sm-center 
+                button(type="button" class="btn btn-outline-secondary buttonCommand btn-lg px-4 gap-3") Add
+                button(type="button" class="btn btn-outline-secondary buttonCommand btn-lg px-4") Delete
+                button(type="button" class="btn btn-outline-secondary buttonCommand btn-lg px-4") Fetch 
+    div.b-example-divider
+    h2.display-6.fetchHeader
+        p.fetchText Fetch List
+    br
+    div.fetch-container
+        div.fetch-item
+            div.title-song tension | gianni & kyle
+            div.button-item 
+                button(type="button" class="btn btn-outline-secondary buttonCommand btn-lg") View
+        div.fetch-item
+            div.title-song tension | gianni & kyle
+            div.button-item 
+                button(type="button" class="btn btn-outline-secondary buttonCommand btn-lg") View
+        div.fetch-item
+            div.title-song tension | gianni & kyle
+            div.button-item 
+                button(type="button" class="btn btn-outline-secondary buttonCommand btn-lg") View

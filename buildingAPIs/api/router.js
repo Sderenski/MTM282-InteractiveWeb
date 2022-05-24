@@ -6,6 +6,19 @@ const express = require('express');
 module.exports = function(Model) {
     const router = express.Router();
 
+
+    const secureRoute = ((req, res, next) => {
+        const { token } = req.headers;
+        jwt.verify(token, secretKey, (err, decoded) => {
+            if (err) {
+                res.status(400).senf('Invalid token.')
+            }
+            next();
+        })
+    })
+
+    router.use(secureRoute);
+
     // Allows for uppercase model names
     const modelKey = Model.modelName.toLowerCase();
 

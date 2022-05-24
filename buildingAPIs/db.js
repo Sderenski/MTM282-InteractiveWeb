@@ -24,6 +24,6 @@ module.exports = function() {
         mongoose.connection.close(true, () => {
             console.log("Forcing db connection to cluster");
             process.exit(0);
-        })
-    })
+        });
+    });
 }
