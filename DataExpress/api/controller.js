@@ -10,16 +10,17 @@ function handleErrors(res, err) {
 module.exports = function(Model) {
     return {
         create: (req, res, next) => {
-            Model.create(req.data, function(err, results) {
-                if(err){
-                    handleErrors(res, err);
-                    return;
-                }
-                res.json({
-                    message: `${Model.modelName} created sucessfully`,
-                    results,
-                });
-            });
+            console.log("In the control: ", req.body);
+            // Model.create(req.body, function(err, results) {
+            //     if(err){
+            //         handleErrors(res, err);
+            //         return;
+            //     }
+            //     res.json({
+            //         message: `${Model.modelName} created sucessfully`,
+            //         results,
+            //     });
+            // });
         },
         update: (req, res, next) => {
             const query = {
