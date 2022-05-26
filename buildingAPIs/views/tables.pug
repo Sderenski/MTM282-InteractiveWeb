@@ -1,0 +1,7 @@
+extends master.pug 
+
+block content
+    ul#tableList
+        each tab in ['game', 'developer','platform']
+            li
+                a(href=`/${tab}`)= tab

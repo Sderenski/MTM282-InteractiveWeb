@@ -1,0 +1,21 @@
+extends master.pug
+
+block content
+    form#myForm(action='/api/game')
+        div
+            label(for="title") Title
+            input(name="title" value=game.title)
+        div
+            label(for="developer") Developer
+            input(name="developer" value=game.developer)
+        div
+            label(for="year") Year
+            input(name="year" value=game.year)
+        div
+            label(for="platform") Platform
+            input(name="platform" value=game.platform)
+        div
+            input(type='submit' value="Submit")
+block scripts
+    script
+        include form.js

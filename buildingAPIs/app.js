@@ -3,9 +3,10 @@
 const express = require('express');
 require('dotenv').config();
 const db = require('./db');
-const argon2 = require('argon2')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
+const argon2 = require('argon2');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const pug = require('pug');
 
 const secretKey = 'whatever';
 
@@ -21,10 +22,45 @@ const Game = require('./api/models/game/game.dao');
 const routerFactory = require('./api/router');
 const res = require('express/lib/response');
 
+// tell our server to accept JSON formatted post requests
 app.use(express.json())
 
+// tell our server to use pug as view engine
+app.set('views', './views');
+app.set('view engine', 'pug');
+
 // Use the routes
-app.use('/', routerFactory(Game));
+app.use('/api', routerFactory(Game));
+
+function waste(req, res, next) {
+    console.log("THis is a complete waste of time");
+    next();
+}
+
+app.get('/', (req, res, next) => {
+    res.render('tables', {});
+})
+
+app.get('/game', (req, res, next) => {
+    Game.read({}, (err, games) => {
+        if(err) {
+            res.end('Error with database');
+            return;
+        }
+        res.render('games', {games});
+    });
+});
+
+app.get('/game/:id', waste, (req, res) => {
+    const { id } = req.params;
+    Game.read({_id: id}, (err, game) => {
+        if(err) {
+            res.end("Failed to find id");
+            return;
+        }
+        res.render('edit_game', {...game[0]});
+    })
+})
 
 // Basic Hashing of password
 app.get('/auth/:pwd', (req, res, next) => {

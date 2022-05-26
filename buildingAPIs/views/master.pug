@@ -1,0 +1,15 @@
+html 
+    block head
+        title My Simple API
+        style(type="text/css")
+            include default.css
+    block body
+        h1 My Simple API
+        nav#navigation
+        section#content
+            block content
+                p This is where your content should go
+
+        script
+            include simple.js
+        block scripts

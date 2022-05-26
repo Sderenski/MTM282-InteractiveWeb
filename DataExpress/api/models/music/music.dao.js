@@ -5,8 +5,6 @@ schema.statics = {
     // Create an individual item in the document
     create: function(data, callback) {
         // 'this' refers to the schema
-        console.log("Data for the create fxn : ", data);
-        console.log("CallData for the create fxn : ", callback);
         const document = new this(data);
         document.save(callback);
     },

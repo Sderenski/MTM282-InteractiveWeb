@@ -19,6 +19,10 @@ db();
 app.set('views', './templates');
 app.set('view engine', 'pug');
 
+// * Middleware 
+app.use(express.json());
+
+
 // * Setting up the routes
 // API routes
 app.use('/', routerFactory(Book));

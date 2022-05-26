@@ -1,0 +1,7 @@
+extends master.pug 
+
+block content 
+    ul#tableList
+        each game in games
+            li
+                a(href=`/game/${game._id}`)= game.title

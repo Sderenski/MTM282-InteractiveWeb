@@ -17,8 +17,7 @@ module.exports = function(Model) {
         })
     })
 
-    router.use(secureRoute);
-
+    
     // Allows for uppercase model names
     const modelKey = Model.modelName.toLowerCase();
 
@@ -27,11 +26,11 @@ module.exports = function(Model) {
     const ctrl = controller(Model);
 
     // Using the ctrl functions to assign the logic to the routes
-    router.get(`/api/${modelKey}`, ctrl.readAll);
-    router.get(`/api/${modelKey}/:id`, ctrl.readById);
-    router.post(`/api/${modelKey}`, ctrl.create);
-    router.delete(`/api/${modelKey}/:id`, ctrl.delete);
-    router.patch(`/api/${modelKey}/:id`, ctrl.update);
+    router.get(`/${modelKey}`, ctrl.readAll);
+    router.get(`/${modelKey}/:id`, ctrl.readById);
+    router.post(`/${modelKey}`, secureRoute, ctrl.create);
+    router.delete(`/${modelKey}/:id`, secureRoute, ctrl.delete);
+    router.patch(`/${modelKey}/:id`, secureRoute, ctrl.update);
 
     return router;
 }
