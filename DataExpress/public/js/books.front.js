@@ -5,16 +5,16 @@ let detailButtons;
 
 
 addBtn.addEventListener('click', () => {
-    window.location.href = '/musicAdd';
+    window.location.href = '/booksAdd';
 });
 
 function viewDetails(objBtn) {
 
-    window.location.href = `/music/${objBtn.value}`;
+    window.location.href = `/books/${objBtn.value}`;
 }
 
 fetchBtn.addEventListener('click', () => {
-    fetch(`/api/music`)
+    fetch(`/api/book`)
     .then((response) => response.json())
     .then((data) => {
         console.log(data);
@@ -22,7 +22,7 @@ fetchBtn.addEventListener('click', () => {
         for(var i = 0; i < data.length; i++){
             fetchCon.innerHTML = fetchCon.innerHTML + `
                 <div class="fetch-item">
-                    <div class="title-song">${data[i].title} | ${data[i].artist}</div>
+                    <div class="title-song">${data[i].title} | ${data[i].author}</div>
                     <div class="button-item">
                         <button onclick="viewDetails(this)" value=${data[i]._id} type="button" class="btn btn-outline-secondary buttonCommand btn-lg"> View </button>
                     </div>

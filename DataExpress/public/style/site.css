@@ -43,14 +43,42 @@
     background: linear-gradient(to bottom right, maroon, rgba(254, 225, 64, 1))
 }
 
-.nav-custom {
-
-}
-
 .nav-link:hover {
     color: maroon !important;
 }
 
 .active {
     border-bottom: maroon solid 2px !important;
+}
+
+.contentMain {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    gap: 50%;
+    height: 80%;
+}
+
+.titleContent {
+    margin-top: 35px;
+    padding: 100px;
+    
+}
+
+.infoContent {
+    margin-top: 100px;
+    padding: 60px;
+    border-left: solid maroon 3px;
+    height: fit-content;
+}
+
+.extraContent {
+    margin-top: 150px;
+}
+.genreTitle {
+    border-bottom: solid maroon 3px;
+}
+
+.hiddenValues {
+    display: none;
 }

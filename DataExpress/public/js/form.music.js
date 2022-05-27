@@ -5,7 +5,8 @@ const albumText = document.getElementById('album');
 const yearNum = document.getElementById('year');
 const genresText = document.getElementById('genre');
 
-const musicForm = document.getElementById('musicForm');
+// * Add a alert or something that tells the user 
+// * that the entry has been added
 
 submitBtn.onclick = (ev) => {
     ev.preventDefault();
@@ -23,7 +24,7 @@ submitBtn.onclick = (ev) => {
             year: yearNum.value,
         }),
     }
-    fetch('http://localhost:3001/api/music', fetchOptions)
+    fetch(`/api/music`, fetchOptions)
     .then((response) => response.json())
     .catch((err) => {
         console.log('err: ', err);

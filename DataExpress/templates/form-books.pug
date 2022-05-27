@@ -1,0 +1,46 @@
+extends layout.pug 
+
+block navbar
+    li.nav-item
+        a.nav-link(href='/') Home
+    li.nav-item
+        a.nav-link(href='/music') Music
+    li.nav-item
+        a.nav-link(href='/books') Books
+
+block content
+    .mask.d-flex.align-items-center.h-100.gradient-custom
+        div.container
+            div.row-justify-content-center 
+                div.col-12.col-lg-9.col-xl-7
+                    div.card
+                        div.card-body.p-4.p-md-5
+                            h3.mb-4.pb-2 Add Form
+                            
+                            form(action="" id="bookForm")
+                                div.row 
+                                    div.col-md-6.mb-4
+                                        div.form-outline
+                                            input(type="text" id='title' class="form-control")
+                                            label(class="form-label" for="title") Book Title 
+                                    div.col-md-6.mb-4
+                                        div.form-outline
+                                            input(type="text" id='author' class="form-control")
+                                            label(class="form-label" for="author") Author
+                                div.row
+                                    div.col-md-6.mb-4
+                                        div.form-outline
+                                            input(type="number" id='published' class="form-control")
+                                            label(class="form-label" for="published") Year Published
+                                    div.col-md-6.mb-4
+                                        div.form-outline
+                                            input(type="text" id='publisher' class="form-control")
+                                            label(class="form-label" for="publisher") Publisher
+                                div.row
+                                    div.col-12
+                                        div.mt-4
+                                            button(id="submitBtn" class="btn btn-warning btn-lg") Submit
+
+    script(src="./public/js/form.books.js") 
+                                    
+                                    

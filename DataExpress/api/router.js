@@ -18,7 +18,9 @@ module.exports = function(Model) {
     router.get(`/api/${modelKey}`, ctrl.readAll);
     router.get(`/api/${modelKey}/:id`, ctrl.readById);
     router.post(`/api/${modelKey}`, ctrl.create);
-    router.delete(`/api/${modelKey}/:id`, ctrl.delete);
+    router.delete(`/api/${modelKey}/:id`, (req, res, next) => {
+        console.log("Made it... maybe")
+    });
     router.patch(`/api/${modelKey}/:id`, ctrl.update);
 
     return router;

@@ -38,6 +38,7 @@ module.exports = function(Model) {
 
         },
         delete: (req, res, next) => {
+            console.log("Got to the delete controller");
             const query = {
                 _id: req.params.id,
             };
