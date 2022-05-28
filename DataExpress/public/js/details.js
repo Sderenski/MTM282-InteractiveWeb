@@ -32,10 +32,7 @@ fetch(`/api/music/${idHidden.textContent}`)
     console.log("Err:", err);
 });
 
-// Deleting the post is fucking up some how... 
-// I have no clue why it is though. It is 
-// being used the exact same way as everything else
-// ! TypeError: NetworkError when attempting to fetch resource
+
 function deletePost() {
     console.log("It is doing anything?")
     const fetchOptions = {
@@ -51,7 +48,7 @@ function deletePost() {
             year: dataPerm[0].year,
         }),
     };
-    fetch(`/api/music/${idHidden.textContent}`, fetchOptions)
+    fetch(`/api/music/delete/${idHidden.textContent}`, fetchOptions)
     .then(response => response.json())
     .then(result => {
         console.log("Success:", result);

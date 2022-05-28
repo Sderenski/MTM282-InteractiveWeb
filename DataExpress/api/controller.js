@@ -1,3 +1,6 @@
+const mong = require('mongoose');
+
+
 function handleErrors(res, err) {
     console.log("Got an error:", err);
     return res.status(400).send(err);
@@ -38,11 +41,10 @@ module.exports = function(Model) {
 
         },
         delete: (req, res, next) => {
-            console.log("Got to the delete controller");
             const query = {
-                _id: req.params.id,
+                _id: mong.Types.ObjectId(req.params.id),
             };
-            Model.delete(query, req.body, function(err, results) {
+            Model.delete(query, function(err, results) {
                 if(err){
                     handleErrors(res, err);
                     return;
