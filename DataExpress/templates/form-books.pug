@@ -14,7 +14,7 @@ block content
             div.row-justify-content-center 
                 div.col-12.col-lg-9.col-xl-7
                     div.card
-                        div.card-body.p-4.p-md-5
+                        div#containerForm.card-body.p-4.p-md-5
                             h3.mb-4.pb-2 Add Form
                             
                             form(action="" id="bookForm")
@@ -40,7 +40,11 @@ block content
                                     div.col-12
                                         div.mt-4
                                             button(id="submitBtn" class="btn btn-warning btn-lg") Submit
-
-    script(src="./public/js/form.books.js") 
+    div#hiddenValues.hiddenValues #{idIndex}
+    #{conditional}
+        if conditional == true
+            script(src="/public/js/edit.books.js")
+        if conditional == false
+            script(src="/public/js/form.books.js")
                                     
                                     

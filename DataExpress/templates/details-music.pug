@@ -1,0 +1,19 @@
+extends layout.pug 
+
+
+
+
+block navbar
+    li.nav-item
+        a.nav-link(href='/') Home
+    li.nav-item
+        a.nav-link(href='/music') Music
+    li.nav-item
+        a.nav-link(href='/books') Books
+
+block content 
+    div#contentMain.contentMain
+
+    //- Find a way to add another hidden value to use it more than once..
+    div#hiddenValues.hiddenValues #{idIndex}
+    script(src="/public/js/details.music.js") 

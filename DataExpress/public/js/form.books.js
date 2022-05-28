@@ -24,6 +24,10 @@ submitBtn.onclick = (ev) => {
     }
     fetch(`/api/book`, fetchOptions)
     .then((response) => response.json())
+    .then(() => {
+        containerForm.innerHTML = "<h3> Book has been Added </h3>";
+        setTimeout(() => { window.location.href = '/books'; }, 1300);
+    })
     .catch((err) => {
         console.log('err: ', err);
     });
