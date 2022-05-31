@@ -20,6 +20,7 @@ fetch(`/api/book/${idHidden.textContent}`)
             <br>
             <div class="buttonDiv">
                 <button onclick='deletePost()' id='delete' type='button' class="btn btn-outline-secondary buttonCommand btn-lg px-4"> Delete Book </button>
+                <button onclick='editPost()' id='edit' type='button' class="btn btn-outline-secondary buttonCommand btn-lg px-4"> Edit Book </button>
             </div>
         </div>`
 })
@@ -44,11 +45,15 @@ function deletePost() {
     fetch(`/api/book/delete/${idHidden.textContent}`, fetchOptions)
     .then(response => response.json())
     .then(result => {
-        window.location.href = '/book';
+        window.location.href = '/books';
     })
     .catch((err) => {
         console.log("Err:", err);
     });
 };
+
+function editPost() {
+    window.location.href = `/books/edit/${idHidden.textContent}`;
+}
 
 

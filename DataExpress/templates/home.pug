@@ -7,6 +7,13 @@ block navbar
         a.nav-link(href='/music') Music
     li.nav-item
         a.nav-link(href='/books') Books
-    li.nav-item
-        a.nav-link.disabled Disabled
+
+block content
+    div.px-4.py-5.my-5.text-center
+        h1.display-5.fw.bold Welcome to the Data Express API 
+        div.col-lg-6.mx-auto
+            p.lead.mb-4 There are two major APIs that store data on here
+                .d-grid.gap-2.d-sm-flex.justify-content-sm-center 
+                    a(id='add' href='/music' class="btn btn-outline-secondary buttonCommand btn-lg px-4 gap-3") Music API
+                    a(id='fetch' href="/books" class="btn btn-outline-secondary buttonCommand btn-lg px-4") Books API
 

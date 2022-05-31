@@ -3,6 +3,8 @@ const titleText = document.getElementById('title');
 const authorText = document.getElementById('author');
 const publisherText = document.getElementById('publisher');
 const publishedNum = document.getElementById('published');
+const containerForm = document.getElementById('containerForm');
+
 
 // * Add a alert or something that tells the user 
 // * that the entry has been added

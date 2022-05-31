@@ -25,6 +25,7 @@ fetch(`/api/music/${idHidden.textContent}`)
             <br>
             <div class="buttonDiv">
                 <button onclick='deletePost()' id='delete' type='button' class="btn btn-outline-secondary buttonCommand btn-lg px-4"> Delete Song </button>
+                <button onclick='editPost()' id='edit' type='button' class="btn btn-outline-secondary buttonCommand btn-lg px-4"> Edit Song </button>
             </div>
         </div>`
 })
@@ -57,5 +58,9 @@ function deletePost() {
         console.log("Err:", err);
     });
 };
+
+function editPost() {
+    window.location.href = `/music/edit/${idHidden.textContent}`;
+}
 
 
